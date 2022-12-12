@@ -10,7 +10,7 @@ let Port = process.env.PORT||5000;
 let morgan = require('morgan');
 let mongo = require('mongodb');
 let MongoClient = mongo.MongoClient;
-let mongoUrl ="mongodb+srv://mohit:mohit123@cluster0.jmtb7kl.mongodb.net/bikewale?retryWrites=true&w=majority"
+let mongoUrl = process.env.MongoLocal;
 let bodyParser = require('body-parser')
 let db;
 
@@ -151,14 +151,12 @@ app.get('/details/:id',(req,res)=>{
 })
 // more bikes details
 app.post('/menuitems',(req,res)=>{
-    if(Array.isArray(req.body.id)){
-        db.collection('bikes').find({id:{$in:req.body.id}}).toArray((err,result)=>{
+    
+        db.collection('bikes').find({id:{$in:req.body}}).toArray((err,result)=>{
             if (err) throw err;
         res.send(result)
         })
-    }else{
-        res.send('Invalid Input')
-    }
+  
 })
 
 // list of orders
