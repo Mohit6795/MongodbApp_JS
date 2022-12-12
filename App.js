@@ -10,7 +10,7 @@ let Port = process.env.PORT||5000;
 let morgan = require('morgan');
 let mongo = require('mongodb');
 let MongoClient = mongo.MongoClient;
-let mongoUrl = process.env.MongoLocal;
+let mongoUrl ="mongodb+srv://mohit:mohit123@cluster0.jmtb7kl.mongodb.net/bikewale?retryWrites=true&w=majority"
 let bodyParser = require('body-parser')
 let db;
 
@@ -156,7 +156,7 @@ app.post('/menuitems',(req,res)=>{
             if (err) throw err;
         res.send(result)
         })
-  
+ 
 })
 
 // list of orders
