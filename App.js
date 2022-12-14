@@ -189,8 +189,8 @@ app.put('/updateOrder/:id',(req,res)=>{
         {
             $set:{
                 "status":req.body.status,
-                "bank":req.body.status,
-                "status":req.body.status
+                "bank_name":req.body.bank_name,
+                "date":req.body.date
         }
         },(err,result)=>{
             if(err) throw err;
